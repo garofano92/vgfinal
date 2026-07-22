@@ -669,8 +669,8 @@ export default function VGPersonalTrainingStudio() {
                 <>
                   {/* Campo trappola anti-spam: invisibile agli utenti, i bot lo compilano. */}
                   <input type="text" name="azienda" tabIndex={-1} autoComplete="off" aria-hidden="true" style={{ position: "absolute", left: "-9999px", width: 1, height: 1, opacity: 0 }} />
-                  <div className="field"><label>Nome e cognome</label><input required name="nome" placeholder="Il tuo nome" /></div>
-                  <div className="field"><label>Telefono / Email</label><input required name="contatto" placeholder="Come possiamo ricontattarti" /></div>
+                  <div className="field"><label>Nome e cognome *</label><input required name="nome" placeholder="Il tuo nome" /></div>
+                  <div className="field"><label>Telefono / Email *</label><input required name="contatto" placeholder="Come possiamo ricontattarti" /></div>
                   <div className="field"><label>Il tuo obiettivo</label>
                     <select name="obiettivo" defaultValue="">
                       <option value="" disabled>Seleziona…</option>
@@ -681,7 +681,7 @@ export default function VGPersonalTrainingStudio() {
                       <option>Altro</option>
                     </select>
                   </div>
-                  <div className="field"><label>Messaggio</label><textarea name="messaggio" placeholder="Raccontaci qualcosa in più (facoltativo)" /></div>
+                  <div className="field"><label>Messaggio *</label><textarea required name="messaggio" placeholder="Come posso aiutarti?" /></div>
                   <button className="btn btn-primary" type="submit" style={{ width: "100%", justifyContent: "center" }}>
                     Invia richiesta <ArrowRight size={17} />
                   </button>
