@@ -432,9 +432,10 @@ export default function VGPersonalTrainingStudio() {
             </div>
 
             {/* Luca Corrini — composita prima/dopo, stesso trattamento di Alex.
-                NIENTE CITAZIONE finché non arrivano le sue parole vere: quella
-                che stava qui era un testo di riempimento, e la riga grigia che
-                lo diceva era finita online. */}
+                La citazione sono le SUE parole, date da Luca. Quella di prima
+                era un testo di riempimento, e la riga grigia che lo diceva era
+                finita online: se un giorno serve riscriverla, si aggiorna con
+                parole vere o si toglie — mai un segnaposto. */}
             <div className="proof-luca" data-reveal data-d="2">
               <div className="comp-single">
                 <img src="/luca_front_comp.jpg" alt="Luca Corrini — trasformazione prima e dopo"
@@ -447,6 +448,11 @@ export default function VGPersonalTrainingStudio() {
                 <div style={{fontSize:12,color:"var(--red)",letterSpacing:".16em",textTransform:"uppercase",marginBottom:14,fontFamily:"var(--disp)",fontWeight:700}}>Creator digitale · In percorso da gennaio 2026</div>
                 <div className="proof-badges">
                   <span className="pbadge"><strong>-30&thinsp;kg</strong> in 6 mesi</span>
+                </div>
+                <div className="quote">
+                  Quando ho conosciuto Vincenzo per la prima volta mi ha fatto scattare qualcosa
+                  che non so spiegarvi, mi ha trasmesso una mentalità che non conoscevo prima d&rsquo;ora.
+                  <span className="note">Luca Corrini — Creator digitale</span>
                 </div>
               </div>
             </div>
