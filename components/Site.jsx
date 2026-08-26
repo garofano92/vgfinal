@@ -431,24 +431,20 @@ export default function VGPersonalTrainingStudio() {
               </div>
             </div>
 
-            {/* Luca Corrini — foto con Vincenzo */}
+            {/* Luca Corrini — composita prima/dopo, stesso trattamento di Alex.
+                NIENTE CITAZIONE finché non arrivano le sue parole vere: quella
+                che stava qui era un testo di riempimento, e la riga grigia che
+                lo diceva era finita online. */}
             <div className="proof-luca" data-reveal data-d="2">
-              <div className="img" style={{overflow:"hidden",height:"100%"}}>
-                <img src="/luca.jpg" alt="Luca Corrini con Vincenzo Garofano in studio"
-                  style={{width:"100%",height:"100%",objectFit:"cover",objectPosition:"center top",display:"block",transition:"transform .6s"}}
-                  onMouseEnter={e=>e.currentTarget.style.transform="scale(1.04)"}
-                  onMouseLeave={e=>e.currentTarget.style.transform="scale(1)"} />
+              <div className="comp-single">
+                <img src="/luca_front_comp.jpg" alt="Luca Corrini — trasformazione prima e dopo"
+                  style={{width:"100%",height:"100%",objectFit:"cover",objectPosition:"center top",display:"block"}} />
+                <span className="hl-tag aft">Prima / Dopo</span>
               </div>
               <div className="proof-body">
                 <div className="kicker">Riflettori</div>
                 <div style={{fontFamily:"var(--disp)",fontWeight:800,textTransform:"uppercase",fontSize:"clamp(18px,2vw,24px)",letterSpacing:".02em",margin:"10px 0 6px"}}>Luca Corrini</div>
-                <div style={{fontSize:12,color:"var(--red)",letterSpacing:".16em",textTransform:"uppercase",marginBottom:22,fontFamily:"var(--disp)",fontWeight:700}}>Creator digitale · In percorso da gennaio 2026</div>
-                <div className="quote">
-                  Dopo anni di palestre dove nessuno mi seguiva davvero, qui ho trovato un metodo
-                  costruito su di me. In pochi mesi è cambiato il fisico, ma soprattutto il modo in
-                  cui mi alleno e mi vedo.
-                  <span className="note">Da aggiornare con citazione reale di Luca Corrini</span>
-                </div>
+                <div style={{fontSize:12,color:"var(--red)",letterSpacing:".16em",textTransform:"uppercase",fontFamily:"var(--disp)",fontWeight:700}}>Creator digitale · In percorso da gennaio 2026</div>
               </div>
             </div>
 

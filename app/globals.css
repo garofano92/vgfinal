@@ -309,18 +309,26 @@ section{ position:relative; }
 .proof-alex{ display:grid; grid-template-columns:1fr 1fr; border:1px solid rgba(230,43,0,.42); background:linear-gradient(180deg,#140907,#0b0b0b); overflow:hidden; }
 .proof-alex .comp{ display:grid; grid-template-columns:1fr 1fr; height:100%; }
 .proof-alex .comp-single{ position:relative; overflow:hidden; min-height:340px; }
-.proof-alex .hl-tag.aft{ position:absolute; bottom:14px; right:14px; background:var(--red); color:#fff; }
+/* La tipografia dell'etichetta vale OVUNQUE compaia. Prima stava solo dentro
+   `.comp-half`, che nel sito non si usa più: così sulla composita intera
+   l'etichetta «Prima / Dopo» usciva col font di sistema, senza spaziatura e
+   senza padding — stonando con tutto il resto. */
+.hl-tag{ font-family:var(--disp); font-weight:700; font-size:9px; letter-spacing:.24em; text-transform:uppercase; padding:5px 10px; }
+.proof-alex .hl-tag.aft,
+.proof-luca .hl-tag.aft{ position:absolute; bottom:14px; right:14px; background:var(--red); color:#fff; }
 .proof-alex .comp-half{ position:relative; overflow:hidden; }
 .proof-alex .comp-half img{ width:100%; height:100%; object-fit:cover; object-position:center top; display:block; }
-.proof-alex .comp-half .hl-tag{ position:absolute; bottom:10px; left:10px; font-family:var(--disp); font-weight:700; font-size:9px; letter-spacing:.24em; text-transform:uppercase; padding:5px 10px; }
+.proof-alex .comp-half .hl-tag{ position:absolute; bottom:10px; left:10px; }
 .proof-alex .comp-half.bef .hl-tag{ background:rgba(255,255,255,.1); color:var(--mut); }
 .proof-alex .comp-half.aft .hl-tag{ background:var(--red); color:#fff; }
 .proof-alex .proof-body{ padding:36px; display:flex; flex-direction:column; justify-content:center; }
-.proof-luca{ display:grid; grid-template-columns:.45fr 1fr; border:1px solid var(--line); background:#0a0a0a; overflow:hidden; }
-.proof-luca .img{ overflow:hidden; }
-.proof-luca .img img{ width:100%; height:100%; object-fit:cover; object-position:center top; display:block; transition:transform .6s; }
-.proof-luca:hover .img img{ transform:scale(1.04); }
-.proof-luca .proof-body{ padding:34px; }
+/* Luca ha lo stesso impianto di Alex: la composita prima/dopo è quadrata, in
+   una colonna stretta verrebbe tagliata a metà su entrambe le persone. */
+.proof-luca{ display:grid; grid-template-columns:1fr 1fr; border:1px solid var(--line); background:#0a0a0a; overflow:hidden; }
+.proof-luca .comp-single{ position:relative; overflow:hidden; min-height:340px; }
+.proof-luca .comp-single img{ transition:transform .6s; }
+.proof-luca:hover .comp-single img{ transform:scale(1.04); }
+.proof-luca .proof-body{ padding:34px; display:flex; flex-direction:column; justify-content:center; }
 @media(max-width:760px){
   .proof-alex,.proof-luca{ grid-template-columns:1fr; }
   .proof-alex .comp{ height:56vw; }
