@@ -444,7 +444,10 @@ export default function VGPersonalTrainingStudio() {
               <div className="proof-body">
                 <div className="kicker">Riflettori</div>
                 <div style={{fontFamily:"var(--disp)",fontWeight:800,textTransform:"uppercase",fontSize:"clamp(18px,2vw,24px)",letterSpacing:".02em",margin:"10px 0 6px"}}>Luca Corrini</div>
-                <div style={{fontSize:12,color:"var(--red)",letterSpacing:".16em",textTransform:"uppercase",fontFamily:"var(--disp)",fontWeight:700}}>Creator digitale · In percorso da gennaio 2026</div>
+                <div style={{fontSize:12,color:"var(--red)",letterSpacing:".16em",textTransform:"uppercase",marginBottom:14,fontFamily:"var(--disp)",fontWeight:700}}>Creator digitale · In percorso da gennaio 2026</div>
+                <div className="proof-badges">
+                  <span className="pbadge"><strong>-30&thinsp;kg</strong> in 6 mesi</span>
+                </div>
               </div>
             </div>
 
