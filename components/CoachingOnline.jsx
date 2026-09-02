@@ -65,11 +65,19 @@ const PLAN_FEATS = [
   "Consulenza alimentare",
 ];
 
+// IL NUMERO DI TRANCHE È UN DATO DEL PIANO, non un testo fisso: l'annuale si
+// dilaziona in tre, il semestrale in due. Prima il «2» era scritto a mano in
+// due punti diversi — la riga sotto il prezzo e l'elenco dei vantaggi — e
+// quello dell'elenco valeva per tutti i piani rateizzabili. Bastava cambiarne
+// uno solo perché la stessa scheda dicesse due cose diverse.
 const PLANS = [
-  { tag: "", name: "Trimestrale", desc: "Coaching individuale seguito direttamente, su tre mesi.", price: "350", perMonth: "~€117/mese", note: "Pagamento in un'unica soluzione", split: false },
-  { tag: "Più scelto", name: "Semestrale", desc: "Percorso completo con monitoraggio costante nel tempo.", price: "600", perMonth: "~€100/mese", note: "Dilazionabile in 2 tranche a 4 settimane", split: true, featured: true },
-  { tag: "", name: "Annuale", desc: "Accesso completo al metodo VG Personal Training.", price: "990", perMonth: "~€83/mese", note: "Dilazionabile in 2 tranche a 4 settimane", split: true },
+  { tag: "", name: "Trimestrale", desc: "Coaching individuale seguito direttamente, su tre mesi.", price: "350", perMonth: "~€117/mese", tranche: 0 },
+  { tag: "Più scelto", name: "Semestrale", desc: "Percorso completo con monitoraggio costante nel tempo.", price: "600", perMonth: "~€100/mese", tranche: 2, featured: true },
+  { tag: "", name: "Annuale", desc: "Accesso completo al metodo VG Personal Training.", price: "990", perMonth: "~€83/mese", tranche: 3 },
 ];
+
+// Le due frasi nascono dallo stesso numero: non possono piu' discordare.
+const rateizzo = (n) => `${n} tranche a 4 settimane`;
 
 
 const CO_TR_ITEMS = [
@@ -365,10 +373,10 @@ export default function CoachingOnline() {
                 <div className="pdesc">{p.desc}</div>
                 <div className="pricev"><span className="cur">€</span>{p.price}</div>
                 <div className="pnote" style={{ color: "var(--mut)", fontSize: 13, marginBottom: 4 }}>{p.perMonth}</div>
-                <div className="pnote">{p.note}</div>
+                <div className="pnote">{p.tranche ? `Dilazionabile in ${rateizzo(p.tranche)}` : "Pagamento in un'unica soluzione"}</div>
                 <ul className="pfeats">
                   {PLAN_FEATS.map((f) => <li key={f}><Check size={15} />{f}</li>)}
-                  {p.split && <li><Check size={15} />Pagamento in 2 tranche a 4 settimane</li>}
+                  {p.tranche > 0 && <li><Check size={15} />Pagamento in {rateizzo(p.tranche)}</li>}
                 </ul>
                 <div className="pcta">
                   <a className={"btn " + (p.featured ? "btn-primary" : "btn-ghost")} href={WA} target="_blank" rel="noreferrer">

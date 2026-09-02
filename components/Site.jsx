@@ -527,12 +527,25 @@ export default function VGPersonalTrainingStudio() {
           <div className="ba" ref={baRef} data-reveal data-d="2"
             onMouseDown={() => (dragging.current = true)}
             onTouchStart={() => (dragging.current = true)}>
+            {/* Le due foto sono ritagliate 3:4 — lo stesso rapporto del
+                contenitore — e allineate fra loro su testa e ombelico. Serve
+                perche' un cursore che scorre confronta i due fotogrammi pixel
+                per pixel: se il soggetto stesse a un'altezza diversa nei due
+                scatti, trascinando sembrerebbero due persone che si scambiano
+                di posto invece della stessa che cambia. */}
+            {/* draggable={false}: senza, il confronto si rompe sul computer.
+                Premendo sulla FOTO invece che sulla manopola — cioe' quello che
+                fa chiunque legga «trascina il cursore» — Chrome avvia il proprio
+                trascinamento dell'immagine e si prende gli eventi successivi:
+                il cursore salta al punto premuto e li' resta, con l'ombra della
+                foto appiccicata al puntatore. Sul telefono non si vedeva perche'
+                il tocco segue un'altra strada. */}
             <div className="ba-layer ba-before">
-              <img src="/slider_before.jpg" alt="Prima" />
+              <img src="/slider_before.jpg" alt="Luca Corrini prima del percorso" draggable={false} />
               <span className="ba-tag">Prima</span>
             </div>
             <div className="ba-layer ba-after" style={{ clipPath:`inset(0 0 0 ${pos}%)` }}>
-              <img src="/slider_after.jpg" alt="Dopo" />
+              <img src="/slider_after.jpg" alt="Luca Corrini dopo sei mesi di percorso" draggable={false} />
               <span className="ba-tag">Dopo</span>
             </div>
             <div className="ba-handle" style={{ left: `${pos}%` }}>
