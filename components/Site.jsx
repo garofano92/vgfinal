@@ -76,20 +76,20 @@ const METHOD = [
 
 
 const TR_ITEMS = [
-  { img: "/alex_front_comp.jpg", label: "In studio · Alex Garini" },
-  { img: "/alex_back_comp.jpg",  label: "In studio · Alex Garini" },
-  { img: "/new1.jpg", label: "In studio · Trasformazione" },
-  { img: "/new2.jpg", label: "In studio · Trasformazione" },
-  { img: "/new3.jpg", label: "In studio · Trasformazione" },
-  { img: "/new4.jpg", label: "In studio · Trasformazione" },
-  { img: "/new5.jpg", label: "In studio · Trasformazione" },
-  { img: "/new6.jpg", label: "In studio · Trasformazione" },
-  { img: "/new7.jpg", label: "In studio · Trasformazione" },
-  { img: "/tr1.jpg",  label: "Coaching Online · Trasformazione" },
-  { img: "/tr2.jpg",  label: "Coaching Online · Trasformazione" },
-  { img: "/tr3.jpg",  label: "Coaching Online · Trasformazione" },
-  { img: "/tr4.jpg",  label: "Coaching Online · Trasformazione" },
-  { img: "/tr5.jpg",  label: "Coaching Online · Trasformazione" },
+  { img: "/alex_front_comp.jpg", label: "In studio · Alex Garini", alt: "Alex Garini, trasformazione in studio — vista frontale" },
+  { img: "/alex_back_comp.jpg",  label: "In studio · Alex Garini", alt: "Alex Garini, trasformazione in studio — vista posteriore" },
+  { img: "/new1.jpg", label: "In studio · Trasformazione", alt: "Trasformazione di un cliente seguito in studio a Frattamaggiore" },
+  { img: "/new2.jpg", label: "In studio · Trasformazione", alt: "Trasformazione di un cliente seguito in studio a Frattamaggiore" },
+  { img: "/new3.jpg", label: "In studio · Trasformazione", alt: "Trasformazione di un cliente seguito in studio a Frattamaggiore" },
+  { img: "/new4.jpg", label: "In studio · Trasformazione", alt: "Trasformazione di un cliente seguito in studio a Frattamaggiore" },
+  { img: "/new5.jpg", label: "In studio · Trasformazione", alt: "Trasformazione di un cliente seguito in studio a Frattamaggiore" },
+  { img: "/new6.jpg", label: "In studio · Trasformazione", alt: "Trasformazione di un cliente seguito in studio a Frattamaggiore" },
+  { img: "/new7.jpg", label: "In studio · Trasformazione", alt: "Trasformazione di un cliente seguito in studio a Frattamaggiore" },
+  { img: "/tr1.jpg",  label: "Coaching Online · Trasformazione", alt: "Trasformazione di un cliente seguito in coaching online" },
+  { img: "/tr2.jpg",  label: "Coaching Online · Trasformazione", alt: "Trasformazione di un cliente seguito in coaching online" },
+  { img: "/tr3.jpg",  label: "Coaching Online · Trasformazione", alt: "Trasformazione di un cliente seguito in coaching online" },
+  { img: "/tr4.jpg",  label: "Coaching Online · Trasformazione", alt: "Trasformazione di un cliente seguito in coaching online" },
+  { img: "/tr5.jpg",  label: "Coaching Online · Trasformazione", alt: "Trasformazione di un cliente seguito in coaching online" },
 ];
 
 function MarqueeTransformations({ title = true }) {
@@ -152,12 +152,15 @@ function MarqueeTransformations({ title = true }) {
       >
         <div ref={trackRef} className="marquee-track"
           style={{ animation:"none", willChange:"transform" }}>
-          {doubled.map(({ img, label }, i) => (
-            <div className="m-card" key={i}>
-              <img src={img} alt={label} loading="lazy" draggable="false" />
+          {doubled.map(({ img, label, alt }, i) => {
+            const copy = i >= TR_ITEMS.length;
+            return (
+            <div className="m-card" key={i} aria-hidden={copy || undefined}>
+              <img src={img} alt={copy ? "" : alt} loading="lazy" draggable="false" />
               <div className="m-label">{label}</div>
             </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </div>
@@ -478,7 +481,7 @@ export default function VGPersonalTrainingStudio() {
             <div className="flow-step">
               <div className="flow-n">01</div>
               <h3>Consulenza iniziale</h3>
-              <p>Un primo incontro conoscitivo per ascoltare i tuoi obiettivi e capire se il percorso è adatto a te.</p>
+              <p>La visita iniziale in studio (60€): ascoltiamo i tuoi obiettivi e capiamo se il percorso è adatto a te.</p>
             </div>
             <div className="flow-line" />
             <div className="flow-step">
@@ -495,7 +498,7 @@ export default function VGPersonalTrainingStudio() {
           </div>
 
           <div className="metodo-sub" data-reveal data-d="2">
-            <span className="m-dot" />Le cinque fasi del lavoro
+            <span className="m-dot" />Le sei fasi del lavoro
           </div>
           <div className="steps">
             {METHOD.map(([n, t, d], i) => (
@@ -667,7 +670,7 @@ export default function VGPersonalTrainingStudio() {
             <div data-reveal><Eyebrow>Contatti</Eyebrow></div>
             <h2 className="disp h-l" data-reveal data-d="1" style={{ margin: "18px 0 14px" }}>Prenota la tua<br />prima consulenza</h2>
             <p className="lede" data-reveal data-d="1" style={{ marginBottom: 34 }}>
-              Raccontaci il tuo obiettivo. Ti ricontattiamo per un primo incontro conoscitivo, senza impegno.
+              Raccontaci il tuo obiettivo. Ti ricontattiamo per fissare la visita iniziale in studio (60€).
             </p>
             <form data-reveal data-d="2" onSubmit={async (e) => {
               e.preventDefault();
@@ -741,7 +744,7 @@ export default function VGPersonalTrainingStudio() {
             e dell'assistenza all'interno dello studio.
           </p>
           <a className="btn btn-primary" data-reveal data-d="3" href="#contatti" onClick={(e) => go(e, "#contatti")}>
-            Richiedi una consulenza conoscitiva <ArrowRight size={17} />
+            Prenota la visita iniziale <ArrowRight size={17} />
           </a>
           <p className="band-note" data-reveal data-d="3">
             Valuteremo insieme se il percorso è realmente adatto alle tue esigenze e ai tuoi obiettivi.

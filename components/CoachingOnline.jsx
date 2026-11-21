@@ -35,7 +35,7 @@ const RECEIVE = [
   ["Adattamenti continui del piano", "Il programma evolve settimana dopo settimana, in base ai tuoi risultati."],
   ["Supporto diretto con il coach", "Contatto quotidiano via WhatsApp ed email: ogni dubbio risolto subito."],
   ["Playlist video tutorial esclusiva", "Accesso alla libreria privata di tutorial: nessun esercizio eseguito male."],
-  ["Consulenza alimentare", "Nessuna dieta scritta, ma l'approccio giusto da capire e applicare passo dopo passo."],
+  ["Indicazioni alimentari", "Niente piano dietetico da seguire a memoria: indicazioni pratiche e l'approccio giusto da capire e applicare passo dopo passo."],
 ];
 
 const HOW = [
@@ -62,7 +62,7 @@ const PLAN_FEATS = [
   "Programmazione personalizzata",
   "Supporto quotidiano (WhatsApp ed email)",
   "Playlist video tutorial esclusiva",
-  "Consulenza alimentare",
+  "Indicazioni alimentari",
 ];
 
 // IL NUMERO DI TRANCHE È UN DATO DEL PIANO, non un testo fisso: l'annuale si
@@ -132,8 +132,8 @@ function CoMarquee() {
       <div ref={trackRef} className="marquee-track"
         style={{animation:"none", willChange:"transform"}}>
         {[...CO_TR_ITEMS,...CO_TR_ITEMS].map(({img,label},i)=>(
-          <div className="m-card" key={i}>
-            <img src={img} alt={label} loading="lazy" draggable="false" />
+          <div className="m-card" key={i} aria-hidden={i >= CO_TR_ITEMS.length || undefined}>
+            <img src={img} alt={i >= CO_TR_ITEMS.length ? "" : "Trasformazione di un cliente seguito in coaching online"} loading="lazy" draggable="false" />
             <div className="m-label">{label}</div>
           </div>
         ))}
