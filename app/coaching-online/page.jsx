@@ -1,6 +1,6 @@
 import CoachingOnline from "@/components/CoachingOnline";
 
-const SITE_URL = "https://www.vgpersonaltrainingstudio.it";
+const SITE_URL = "https://www.vgpersonaltraining.it";
 
 export const metadata = {
   title: "Coaching Online | Personal Trainer Online in Italia",
@@ -23,6 +23,13 @@ export const metadata = {
     description:
       "Percorso individuale, personalizzato e monitorato nel tempo. La stessa qualità dello studio, ovunque tu sia.",
     images: [{ url: "/og-coaching.jpg", width: 1200, height: 630, alt: "VG Coaching Online" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Coaching Online | Personal Trainer Online in Italia",
+    description:
+      "Percorso individuale, personalizzato e monitorato nel tempo. La stessa qualità dello studio, ovunque tu sia.",
+    images: ["/og-coaching.jpg"],
   },
 };
 
