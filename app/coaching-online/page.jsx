@@ -5,9 +5,10 @@ const SITE_URL = "https://www.vgpersonaltraining.it";
 export const metadata = {
   title: "Coaching Online | Personal Trainer Online in Italia",
   description:
-    "Coaching online 1 a 1 con Vincenzo Garofano: scheda di allenamento personalizzata online, monitoraggio costante e supporto diretto. Ricomposizione corporea online, ovunque tu sia.",
+    "Coaching online 1 a 1 con Vincenzo Garofano: programma personalizzato nell'app VG Coaching, video degli esercizi, progressi e chat diretta con il coach. Ricomposizione corporea online, ovunque tu sia.",
   keywords: [
     "coaching online personal trainer",
+    "app allenamento con personal trainer",
     "personal trainer online Italia",
     "scheda allenamento personalizzata online",
     "coach fitness online",
