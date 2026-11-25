@@ -84,7 +84,7 @@ const PLAN_FEATS = [
 // quello dell'elenco valeva per tutti i piani rateizzabili. Bastava cambiarne
 // uno solo perché la stessa scheda dicesse due cose diverse.
 const PLANS = [
-  { tag: "", name: "Trimestrale", desc: "Coaching individuale seguito direttamente, su tre mesi.", price: "350", perMonth: "~€117/mese", tranche: 0, cibo: "Indicazioni alimentari" },
+  { tag: "", name: "Trimestrale", desc: "Coaching individuale seguito direttamente, su tre mesi.", price: "350", perMonth: "~€117/mese", tranche: 0, cibo: null },
   { tag: "Più scelto", name: "Semestrale", desc: "Percorso completo con monitoraggio costante nel tempo.", price: "600", perMonth: "~€100/mese", tranche: 2, featured: true, cibo: "Prima visita con la nutrizionista inclusa" },
   { tag: "", name: "Annuale", desc: "Accesso completo al metodo VG Personal Training.", price: "990", perMonth: "~€83/mese", tranche: 3, cibo: "Prima visita con la nutrizionista inclusa" },
 ];
@@ -419,7 +419,7 @@ export default function CoachingOnline() {
                 <div className="pnote">{p.tranche ? `Dilazionabile in ${rateizzo(p.tranche)}` : "Pagamento in un'unica soluzione"}</div>
                 <ul className="pfeats">
                   {PLAN_FEATS.map((f) => <li key={f}><Check size={15} />{f}</li>)}
-                  <li><Check size={15} />{p.cibo}</li>
+                  {p.cibo && <li><Check size={15} />{p.cibo}</li>}
                   {p.tranche > 0 && <li><Check size={15} />Pagamento in {rateizzo(p.tranche)}</li>}
                 </ul>
                 <div className="pcta">
