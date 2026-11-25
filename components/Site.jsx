@@ -590,8 +590,8 @@ export default function VGPersonalTrainingStudio() {
             <h2 className="disp h-xl" data-reveal data-d="1">Il tuo percorso,<br />senza confini</h2>
             <p className="lede" data-reveal data-d="2">
               Vivi lontano dallo studio o hai poco tempo? Il Coaching Online ti segue ovunque con
-              la stessa cura del lavoro in presenza: programma su misura, monitoraggio costante e
-              contatto diretto con il coach. Mai una scheda standard.
+              la stessa cura del lavoro in presenza: programma su misura nella nuova app VG Coaching,
+              video degli esercizi, progressi e chat diretta con il coach. Mai una scheda standard.
             </p>
             <div className="hero-cta" data-reveal data-d="3">
               <a className="btn btn-primary" href="/coaching-online">

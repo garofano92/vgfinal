@@ -22,6 +22,7 @@ function Eyebrow({ children, muted }) {
 }
 
 const NAVC = [
+  ["L'app", "#app"],
   ["Cosa ricevi", "#cosa"],
   ["Come funziona", "#come"],
   ["Per chi è", "#perchi"],
@@ -29,22 +30,33 @@ const NAVC = [
 ];
 
 const RECEIVE = [
-  ["Analisi iniziale approfondita", "Foto, circonferenze e questionario: si parte dalla tua reale struttura, non da un modello."],
-  ["Programma di allenamento personalizzato", "Costruito sui tuoi obiettivi, sul tuo livello e sulla tua anatomia. Mai una scheda standard."],
-  ["Monitoraggio costante dei progressi", "Verifica regolare dei dati e dei progressi, seguita da vicino dal coach."],
-  ["Adattamenti continui del piano", "Il programma evolve settimana dopo settimana, in base ai tuoi risultati."],
-  ["Supporto diretto con il coach", "Contatto quotidiano via WhatsApp ed email: ogni dubbio risolto subito."],
-  ["Playlist video tutorial esclusiva", "Accesso alla libreria privata di tutorial: nessun esercizio eseguito male."],
-  ["Indicazioni alimentari", "Niente piano dietetico da seguire a memoria: indicazioni pratiche e l'approccio giusto da capire e applicare passo dopo passo."],
+  ["Analisi iniziale approfondita", "Questionario completo, peso, circonferenze e 4 foto, direttamente dall'app: si parte dalla tua reale struttura, non da un modello."],
+  ["Programma personalizzato nell'app", "Costruito sui tuoi obiettivi, sul tuo livello, sul tempo che hai e sugli eventuali infortuni, in palestra o a casa. Ogni giorno trovi l'allenamento pronto: serie, ripetizioni, RPE e recuperi."],
+  ["Progressione settimana dopo settimana", "Il programma evolve ogni settimana: volume, intensità e carichi crescono con te, con le settimane di scarico quando servono."],
+  ["Ogni esercizio spiegato", "Foto, video e spiegazione di ogni esercizio — come prepararti, come eseguirlo, gli errori da evitare — più le note del coach. Nessun esercizio eseguito male."],
+  ["Diario dei carichi e timer di recupero", "Segni kg e ripetizioni serie per serie e vedi cosa hai fatto la volta prima. Il recupero parte da solo e ti avvisa anche a telefono bloccato."],
+  ["Progressi sempre sotto gli occhi", "Peso e circonferenze in grafico, tutte le misure dall'inizio a oggi e le foto prima/ora a confronto."],
+  ["Supporto diretto con il coach", "Chat con Vincenzo dentro l'app, con le notifiche, e WhatsApp per tutto il resto. Ogni lunedì, il punto sulla tua settimana."],
+  ["Check-in di fine programma", "A fine blocco misure e foto: si misura il risultato e si costruisce il programma successivo."],
+  ["Piano alimentare della nutrizionista", "Con il semestrale e l'annuale è inclusa la prima visita con la nutrizionista: il tuo piano alimentare arriva direttamente nell'app."],
 ];
 
 const HOW = [
-  ["01", "Analisi iniziale", "Obiettivi, livello di partenza e stile di vita: definiamo insieme il punto da cui parti."],
-  ["02", "Creazione del programma", "Un piano personalizzato, cucito sulla tua struttura e sulle tue giornate reali."],
-  ["03", "Avvio del percorso", "Si parte, con video tutorial e indicazioni chiare per eseguire tutto senza errori."],
-  ["04", "Monitoraggio settimanale", "Controllo costante dei dati: niente è lasciato al caso, nulla all'improvvisazione."],
-  ["05", "Adattamenti continui", "Il programma si evolve sui tuoi progressi, fino al risultato e oltre."],
+  ["01", "Analisi iniziale", "Ricevi il link su WhatsApp, crei il tuo accesso e compili dall'app questionario, misure e foto."],
+  ["02", "Creazione del programma", "Vincenzo costruisce il tuo programma su obiettivi, livello, tempo, luogo e infortuni. Mai una scheda standard."],
+  ["03", "Avvio del percorso", "Metti l'app sulla Home del telefono, attivi le notifiche e si parte: ogni giorno l'allenamento pronto, con video e spiegazioni."],
+  ["04", "Monitoraggio costante", "Ogni allenamento che registri arriva al coach: carichi, ripetizioni, sensazioni e note. Nulla è lasciato al caso."],
+  ["05", "Check-in e nuovo blocco", "A fine programma check-in con misure e foto: si valuta il risultato e si riparte con il blocco successivo, fino al risultato e oltre."],
 ];
+
+// L'APP VG COACHING — schermate vere dell'app (modalità prova, dati finti)
+const APP_SHOTS = [
+  { img: "/app/oggi.webp", t: "Oggi", d: "Apri l'app e sai già cosa fare: l'allenamento del giorno, la tua settimana, il piano alimentare." },
+  { img: "/app/timer.webp", t: "In allenamento", d: "Kg e ripetizioni serie per serie, i carichi della volta prima, video dell'esercizio e recupero automatico." },
+  { img: "/app/progressi.webp", t: "Progressi", d: "Peso e circonferenze in grafico, misure dall'inizio a oggi, foto prima/ora a confronto." },
+  { img: "/app/chat.webp", t: "Il tuo coach", d: "Chat diretta con Vincenzo e notifiche: ogni dubbio risolto, nulla si perde." },
+];
+const APP_PILLS = ["iPhone e Android", "Si installa sulla Home", "Notifiche", "Funziona anche senza rete"];
 
 const FIT = [
   "Persone che vivono lontano dallo studio",
@@ -59,10 +71,11 @@ const NOFIT = [
 ];
 
 const PLAN_FEATS = [
-  "Programmazione personalizzata",
-  "Supporto quotidiano (WhatsApp ed email)",
-  "Playlist video tutorial esclusiva",
-  "Indicazioni alimentari",
+  "Programma personalizzato nell'app VG Coaching",
+  "Progressione settimana dopo settimana",
+  "Video e spiegazioni per ogni esercizio",
+  "Chat con il coach nell'app + WhatsApp",
+  "Progressi: grafici, misure e foto",
 ];
 
 // IL NUMERO DI TRANCHE È UN DATO DEL PIANO, non un testo fisso: l'annuale si
@@ -71,9 +84,9 @@ const PLAN_FEATS = [
 // quello dell'elenco valeva per tutti i piani rateizzabili. Bastava cambiarne
 // uno solo perché la stessa scheda dicesse due cose diverse.
 const PLANS = [
-  { tag: "", name: "Trimestrale", desc: "Coaching individuale seguito direttamente, su tre mesi.", price: "350", perMonth: "~€117/mese", tranche: 0 },
-  { tag: "Più scelto", name: "Semestrale", desc: "Percorso completo con monitoraggio costante nel tempo.", price: "600", perMonth: "~€100/mese", tranche: 2, featured: true },
-  { tag: "", name: "Annuale", desc: "Accesso completo al metodo VG Personal Training.", price: "990", perMonth: "~€83/mese", tranche: 3 },
+  { tag: "", name: "Trimestrale", desc: "Coaching individuale seguito direttamente, su tre mesi.", price: "350", perMonth: "~€117/mese", tranche: 0, cibo: "Indicazioni alimentari" },
+  { tag: "Più scelto", name: "Semestrale", desc: "Percorso completo con monitoraggio costante nel tempo.", price: "600", perMonth: "~€100/mese", tranche: 2, featured: true, cibo: "Prima visita con la nutrizionista inclusa" },
+  { tag: "", name: "Annuale", desc: "Accesso completo al metodo VG Personal Training.", price: "990", perMonth: "~€83/mese", tranche: 3, cibo: "Prima visita con la nutrizionista inclusa" },
 ];
 
 // Le due frasi nascono dallo stesso numero: non possono piu' discordare.
@@ -195,23 +208,53 @@ export default function CoachingOnline() {
         <div className="hero-grid" />
         <div className="wrap hero-in">
           <div data-reveal><Eyebrow>Coaching Online · Italia</Eyebrow></div>
+          <div className="new-pill" data-reveal data-d="1"><span className="pulse" />Novità · la tua app VG Coaching</div>
           <h1 className="disp h-xxl" data-reveal data-d="1">
             Allenamento<br />personalizzato,<br /><span style={{ color: RED }}>ovunque tu sia.</span>
           </h1>
           <p className="lede" data-reveal data-d="2">
             Un percorso costruito su di te, seguito passo dopo passo, con la stessa qualità e
-            attenzione dello studio fisico.
+            attenzione dello studio fisico. E ora tutto è nella tua app: allenamento del giorno,
+            carichi, progressi e chat con il coach, sempre in tasca.
           </p>
           <div className="hero-cta" data-reveal data-d="3">
             <a className="btn btn-primary" href="#investimento" onClick={(e) => go(e, "#investimento")}>
               Inizia il tuo percorso <ArrowRight size={17} />
             </a>
-            <a className="btn btn-ghost" href={WA} target="_blank" rel="noreferrer">
-              Contattami su WhatsApp <ArrowUpRight size={17} />
+            <a className="btn btn-ghost" href="#app" onClick={(e) => go(e, "#app")}>
+              Guarda l'app <ArrowRight size={17} />
             </a>
           </div>
         </div>
       </header>
+
+      {/* L'APP VG COACHING */}
+      <section className="sec app-sec" id="app">
+        <div className="wrap">
+          <div className="sec-head">
+            <div data-reveal><Eyebrow>L'app VG Coaching</Eyebrow></div>
+            <h2 className="disp h-xl" data-reveal data-d="1">Il tuo coach,<br /><span style={{ color: RED }}>in tasca.</span></h2>
+            <p className="lede" data-reveal data-d="2">
+              Niente più file da cercare tra le chat: programma, video, carichi, progressi e messaggi
+              stanno in un'unica app, costruita per il Coaching Online VG. La installi sulla Home del
+              telefono in un minuto.
+            </p>
+          </div>
+        </div>
+        <div className="app-rail" data-reveal data-d="2">
+          {APP_SHOTS.map((a) => (
+            <figure className="app-shot" key={a.t}>
+              <div className="phone"><img src={a.img} alt={`App VG Coaching: ${a.t}`} loading="lazy" width="600" height="1022" /></div>
+              <figcaption><b>{a.t}</b><span>{a.d}</span></figcaption>
+            </figure>
+          ))}
+        </div>
+        <div className="wrap">
+          <div className="app-pills" data-reveal>
+            {APP_PILLS.map((t) => <span key={t}><Check size={13} />{t}</span>)}
+          </div>
+        </div>
+      </section>
 
       {/* COSA RICEVI */}
       <section className="sec carbon" id="cosa">
@@ -295,7 +338,7 @@ export default function CoachingOnline() {
             <div className="vs-col bad">
               <div className="vs-tag">Schede standard</div>
               <div className="vs-sub">Il prodotto digitale che trovi ovunque</div>
-              {["Uguali per tutti","Nessun feedback","Nessun adattamento nel tempo","Ti lasciano solo dopo l'acquisto"].map((t) => (
+              {["Uguali per tutti","Un file da stampare o da cercare in chat","Nessun feedback","Nessun adattamento nel tempo","Ti lasciano solo dopo l'acquisto"].map((t) => (
                 <div className="vs-li" key={t}><span className="dot"><Minus size={11} /></span>{t}</div>
               ))}
             </div>
@@ -303,7 +346,7 @@ export default function CoachingOnline() {
             <div className="vs-col good">
               <div className="vs-tag">VG Coaching Online</div>
               <div className="vs-sub">Un servizio seguito direttamente</div>
-              {["Personalizzato sul tuo corpo","Monitorato di continuo","Evolutivo, si adatta a te","Contatto diretto con il coach"].map((t) => (
+              {["Personalizzato sul tuo corpo","Monitorato di continuo","Evolutivo, si adatta a te","App dedicata: allenamento, carichi e progressi","Contatto diretto con il coach"].map((t) => (
                 <div className="vs-li" key={t}><span className="dot"><Check size={11} /></span>{t}</div>
               ))}
             </div>
@@ -376,6 +419,7 @@ export default function CoachingOnline() {
                 <div className="pnote">{p.tranche ? `Dilazionabile in ${rateizzo(p.tranche)}` : "Pagamento in un'unica soluzione"}</div>
                 <ul className="pfeats">
                   {PLAN_FEATS.map((f) => <li key={f}><Check size={15} />{f}</li>)}
+                  <li><Check size={15} />{p.cibo}</li>
                   {p.tranche > 0 && <li><Check size={15} />Pagamento in {rateizzo(p.tranche)}</li>}
                 </ul>
                 <div className="pcta">
@@ -386,6 +430,11 @@ export default function CoachingOnline() {
               </div>
             ))}
           </div>
+
+          <p className="nutri-note" data-reveal>
+            Nutrizionista: con il semestrale e l'annuale la prima visita è inclusa e il piano alimentare arriva
+            nell'app. Le visite successive costano 30 € ciascuna e si pagano direttamente a lei.
+          </p>
 
           <div className="value-note" data-reveal>
             <div className="vbig">Non stai pagando delle schede. <em>Stai accedendo a un sistema che si adatta a te nel tempo.</em></div>
